@@ -10,7 +10,7 @@ source:
   sha256: 32600f5e744875f47f71b1764c90176291183e87cf2691259c0d63e052133c60
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - mysqlSucker=fundamentals.mysql.directory_script_runner:main
@@ -21,20 +21,22 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python {{ python_min }}
     - wheel
     - setuptools
   run:
     - docopt
     - future
     - psutil
-    - python >=3.8
+    - python >={{ python_min }}
     - python-dateutil
     - pyyaml
     - requests
     - python-daemon
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - fundamentals
 
