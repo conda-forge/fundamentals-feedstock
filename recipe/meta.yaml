@@ -1,5 +1,5 @@
 {% set name = "fundamentals" %}
-{% set version = "2.8.3" %}
+{% set version = "3.0.0" %}
 {% set python_min = "3.12" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
    url: https://pypi.org/packages/source/f/fundamentals/fundamentals-{{ version }}.tar.gz
-   sha256: 0ecdec32bf5fc02937a8fddaee5b4349dc223b42213ccd43203fe2b141ecc73d
+   sha256: d0f4ca54987ab519233b1b0014e2099ae469de5a695ebb31e9126e99f0d75d90
 
 build:
   number: 0
@@ -24,7 +24,8 @@ requirements:
     - pip
     - python >=3.12
     - wheel
-    - setuptools
+    - setuptools >=70
+    - setuptools-scm
   run:
     - docopt
     - future
@@ -35,10 +36,19 @@ requirements:
     - requests
     - python-daemon
     - tqdm
+    - unicodecsv
+    - pymysql
+    - multiprocess
+    - six
+    - numpy
+    - pandas
 
 test:
   imports:
     - fundamentals
+  commands:
+    - python -c "import importlib.metadata as m, sys; sys.exit(0 if m.version('fundamentals') == '{{ version }}' else 1)"
+    - mysqlSucker --help
 
 about:
   home: https://github.com/thespacedoctor/fundamentals
