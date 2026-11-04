@@ -1,5 +1,5 @@
 {% set name = "fundamentals" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 {% set python_min = "3.12" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-   url: https://pypi.org/packages/source/f/fundamentals/fundamentals-{{ version }}.tar.gz
-   sha256: d0f4ca54987ab519233b1b0014e2099ae469de5a695ebb31e9126e99f0d75d90
+  url: https://files.pythonhosted.org/packages/source/f/fundamentals/fundamentals-{{ version }}.tar.gz
+  sha256: 87ef2a15453e011a7d5c09a9d75d41b0bd9e32b574d063f478edf722ef545153
 
 build:
   number: 0
